@@ -16,7 +16,7 @@ export interface UIPanelState {
   isVisible: boolean
   status: "streaming" | "idle"
   items: UIPanelItem[]
-  workflowMode?: "default" | "coverage-workspace"
+  workflowMode?: "default" | "coverage-workspace" | "shift-schedule"
   activeShiftId?: string
 }
 

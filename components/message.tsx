@@ -51,18 +51,19 @@ function ToolInvocationBlock({
   if (toolName === "presentShiftTask" && state === "result") {
     const result = payload as { type?: string; task?: ShiftTask }
     if (result?.type === "shift_task" && result?.task) {
-      const handleYes = async () => {
-        await append?.({
-          role: "user",
-          content: `Yes, please help me find coverage for the ${result.task?.role} shift on ${result.task?.date}.`
-        })
+      const handleYes = () => {
+        // Directly transition to shift schedule view
+        setDashboard((current) => ({
+          ...current,
+          workflowMode: "shift-schedule",
+          activeShiftId: result.task?.id,
+        }))
+
+        // Add a simple breadcrumb message to chat (optional - can be implemented later)
       }
 
-      const handleNo = async () => {
-        await append?.({
-          role: "user",
-          content: "No, I'll handle this myself."
-        })
+      const handleNo = () => {
+        // User declined, keep dashboard in default mode
       }
 
       return <ShiftTaskCard task={result.task} isInteractive={true} onYes={handleYes} onNo={handleNo} />

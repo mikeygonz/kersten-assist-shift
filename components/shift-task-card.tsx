@@ -1,7 +1,8 @@
 "use client"
 
-import { Calendar, MapPin, ChevronDown } from "lucide-react"
+import { Calendar, MapPin, ChevronDown, Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useState } from "react"
 
 export interface ShiftTask {
   id: string
@@ -25,7 +26,10 @@ interface ShiftTaskCardProps {
 }
 
 export function ShiftTaskCard({ task, onAction, isInteractive = true, onYes, onNo }: ShiftTaskCardProps) {
+  const [confirmed, setConfirmed] = useState(false)
+
   const handleYes = () => {
+    setConfirmed(true)
     onYes?.()
   }
 
@@ -106,7 +110,7 @@ export function ShiftTaskCard({ task, onAction, isInteractive = true, onYes, onN
         </div>
       </div>
 
-      {isInteractive && (
+      {isInteractive && !confirmed && (
         <div className="mt-6 flex gap-3">
           <Button
             variant="outline"
@@ -121,6 +125,12 @@ export function ShiftTaskCard({ task, onAction, isInteractive = true, onYes, onN
           >
             Yes
           </Button>
+        </div>
+      )}
+      {isInteractive && confirmed && (
+        <div className="mt-6 flex items-center justify-center gap-2 text-[#25C9D0] py-3">
+          <Check className="h-5 w-5" />
+          <span className="font-medium">Confirmed</span>
         </div>
       )}
     </div>

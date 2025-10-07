@@ -5,6 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { ClipboardCheck, Heart, Mail } from "lucide-react"
 import { useDashboard } from "@/hooks/use-dashboard"
+import { ShiftScheduleDashboard } from "./shift-schedule-dashboard"
 
 interface DashboardProps {
   summary?: string
@@ -13,6 +14,10 @@ interface DashboardProps {
 
 export function Dashboard({ summary, items }: DashboardProps) {
   const { dashboard } = useDashboard()
+
+  if (dashboard.workflowMode === "shift-schedule") {
+    return <ShiftScheduleDashboard shiftId={dashboard.activeShiftId} />
+  }
 
   if (dashboard.workflowMode === "coverage-workspace") {
     return (
