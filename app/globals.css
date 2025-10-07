@@ -1,0 +1,311 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Default app background: white; we'll set Fog Grey contextually */
+  --color-background: var(--white);
+  --color-foreground: var(--charcoal);
+  --font-sans: var(--font-family-sans);
+  --font-mono: var(--font-family-mono);
+
+  --color-sidebar-ring: var(--olivia-blue);
+  --color-sidebar-border: var(--glitter-grey);
+  --color-sidebar-accent-foreground: var(--charcoal);
+  --color-sidebar-accent: var(--olivia-blue-t900);
+  --color-sidebar-primary-foreground: var(--white);
+  --color-sidebar-primary: var(--olivia-blue);
+  --color-sidebar-foreground: var(--charcoal);
+  --color-sidebar: var(--mist-grey);
+
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+
+  --color-ring: var(--olivia-blue);
+  /* Container and input borders per spec */
+  --color-input: #dadce0;
+  --color-border: #dadce0;
+  --color-destructive-foreground: var(--white);
+  --color-destructive: var(--danger-red);
+  --color-accent: var(--olivia-blue-t900);
+  --color-accent-foreground: var(--charcoal);
+  --color-muted-foreground: var(--earl-grey);
+  --color-muted: var(--fog-grey);
+  --color-secondary-foreground: var(--charcoal);
+  --color-secondary: var(--fog-grey);
+  --color-primary-foreground: var(--white);
+  --color-primary: var(--olivia-blue);
+  --color-popover: var(--white);
+  --color-popover-foreground: var(--charcoal);
+  --color-card-foreground: var(--charcoal);
+  --color-card: var(--white);
+
+  --radius-xs: var(--border-radius-xs);
+  --radius-sm: var(--border-radius-sm);
+  --radius-md: var(--border-radius-md);
+  --radius-lg: var(--border-radius-lg);
+  --radius-xl: var(--border-radius-xl);
+
+  /* Semantic Colors */
+  --color-olivia-blue-t950: var(--olivia-blue-t950);
+  --color-olivia-blue-t700: var(--olivia-blue-t700);
+  --color-olivia-blue-t600: var(--olivia-blue-t600);
+  --color-olivia-blue-t900: var(--olivia-blue-t900);
+  --color-olivia-blue-dark: var(--olivia-blue-dark);
+  --color-olivia-blue: var(--olivia-blue);
+  --color-charcoal: oklch(40.5% 0 0); /* Updated charcoal from pure black to #555 (oklch equivalent) */
+  --color-white: var(--white);
+
+  /* Added chat send button color variables */
+  --chat-send-active: var(--olivia-blue);
+  --chat-send-inactive: #bde6e8;
+
+  /* 
+   *===============================================
+   * COLORS 
+   *===============================================
+   */
+  /* Primary [Neutrals] */
+  /* White: default background for a clean, spacious canvas. */
+  --white: oklch(1 0 0);
+  /* Charcoal: Charcoal is used for headlines, body text, and labels. 
+   * Good for text legibility and establishing hierarchy. Previously named "Almost Black".
+   */
+  --charcoal: oklch(40.5% 0 0); /* Updated charcoal from pure black to #555 (oklch equivalent) */
+
+  /* Primary [Accent]
+   * Our main secondary color is Olivia Blue. 
+   * Olivia blue is key in creating brand consistency and functioning as an accent color to 
+   * establish heirarchy since our color palette is limited.
+   */
+
+  /* Olivia Blue: Olivia Blue should be used as an accent in order to bring attention to 
+   * important items like buttons or active states. 
+   */
+  --olivia-blue: oklch(76.21% 0.1238 199.53);
+  /* Olivia Blue Dark: Olivia Blue 700 (previously "Darker") is used for button hover, and focus. This color is a shade of Olivia Blue. */
+  --olivia-blue-dark: oklch(69.99% 0.1177 199.08);
+  /* Olivia Blue T600: Previously named Olivia Blue Disabled. Used for disabled state color for Olivia Blue. */
+  --olivia-blue-t600: oklch(89.65% 0.0426 200.08);
+  /* Olivia Blue T700: Previously named Olivia Blue Light. Used as the chat border for Olivia's chat responses. */
+  --olivia-blue-t700: oklch(93.87% 0.0412 194.6);
+  /* Olivia Blue T900: Tint of Olivia Blue. Used as an intermediary background tint. Used in Calendar Picker component multi-date selection. */
+  --olivia-blue-t900: oklch(97.41% 0.024 193.59);
+  /* Olivia Blue T950: Previously named Olivia Blue Lightest. Lightest tint of Olivia Blue. Used as a background tint.  Use case is background color for Olivia's chat responses. */
+  --olivia-blue-t950: oklch(99.4% 0.0084 197.02);
+
+  /* Secondary [Accent] */
+  /* Midnight Teal: Midnight Teal is a darker accent color typically used for Scheduling and Events (as icons, buttons, pills etc.). */
+  --midnight-teal: oklch(45.74% 0.0442 212.89);
+
+  /* Secondary [Greys] */
+
+  /* 
+   * Earl Grey: Light grey can be used for headlines or text that is less important in context hierarchy. 
+   * Icons can also use this color. 
+   */
+  --earl-grey: oklch(73.48% 0 0);
+  /* Steel Grey: Darkest grey border. */
+  --steel-grey: oklch(89.41% 0.0059 264.53);
+  /* Glitter Grey: Divider used for border color around candidate responses as well as divider cells. */
+  --glitter-grey: oklch(94.61% 0 0);
+  /* Disco Grey: Used as the chat border for Olivia's chat responses. */
+  --disco-grey: oklch(96.12% 0 0);
+  /* Fog Grey: Originally called Grayfield 1, Fog Grey is used mainly as a background color.
+   * Updated to align exactly with design token #F8F8F8.
+   */
+  --Color-Fog-Grey: #f8f8f8;
+  --fog-grey: var(--Color-Fog-Grey, #f8f8f8);
+  /* Mist Grey: Almost white, lightest grey background. */
+  --mist-grey: oklch(99.11% 0 0);
+
+  /* Tertiary [Feedback] These are feedback colors and should be used super sparingly. */
+  /* Danger Red: Used as a high alert color to warn users of something like canceling an action or deleting. */
+  --danger-red: oklch(59.84% 0.2183 26.95);
+  --danger-red-dark: oklch(51.43% 0.1982 27.93);
+  --danger-red-t300: oklch(86.82% 0.0619 18.42);
+  --danger-red-t900: oklch(95.88% 0.0174 17.46);
+
+  /* Caution Yellow: Used as a high alert color to caution users of something like missing information. */
+  --caution-yellow: oklch(83.18% 0.1415 78.93);
+  --caution-yellow-dark: oklch(71.63% 0.155286 69.8688);
+  --caution-yellow-t300: oklch(88.3% 0.103 81.51);
+  --caution-yellow-t900: oklch(97.53% 0.0215 83.26);
+
+  /* Go Green: Used as a high alert color to congratulate users of a successful interaction like a save action. */
+  --go-green: oklch(76.48% 0.1786 152.81);
+  --go-green-dark: oklch(65.17% 0.1578 152.1);
+  --go-green-t600: oklch(90.03% 0.0752 158.74);
+  --go-green-t900: oklch(96.98% 0.0222 160.24);
+
+  /* Tertiary [Users] 
+   * These are user colors and should be used super sparingly. Each color has a specific use case to a type of user in the CEM.
+   */
+  /* Cactus Green: Used for avatars to indicate employee user type. */
+  --cactus-green: oklch(76.67% 0.1315 173.52);
+  --cactus-green-dark: oklch(49.15% 0.0795 220.12);
+  --cactus-green-t400: oklch(85.07% 0.0914 177.19);
+  --cactus-green-t800: oklch(94.72% 0.0316 179.45);
+
+  /* 
+   *===============================================
+   * TYPOGRAPHY
+   *===============================================
+   */
+  /* Font Family */
+  --font-family-sans: "Open Sans", sans-serif;
+  --font-family-mono: "SF Mono", "Monaco", "Inconsolata", "Fira Mono", "Droid Sans Mono", "Source Code Pro", monospace;
+
+  /* Font Sizes */
+  --header-1-font-size: 1.25rem;
+  --header-1-line-height: 1.75rem;
+  --header-1-font-weight: 600;
+
+  --header-2-font-size: 1rem;
+  --header-2-line-height: 1.375rem;
+  --header-2-font-weight: 600;
+
+  --body-font-size: 0.875rem;
+  --body-line-height: 1.25rem;
+  --body-font-weight: 400;
+
+  --button-font-size: 0.875rem;
+  --button-sm-font-size: 0.75rem;
+  --button-line-height: 1rem;
+  --button-font-weight: 600;
+
+  --link-font-size: 0.875rem;
+  --link-line-height: 1.25rem;
+  --link-font-weight: 600;
+
+  --subtitle-font-size: 0.875rem;
+  --subtitle-mini-font-size: 0.75rem;
+  --subtitle-line-height: 1rem;
+  --subtitle-font-weight: 600;
+
+  --input-lg-font-size: 1rem;
+  --input-lg-line-height: 1.375rem;
+  --input-lg-font-weight: 400;
+
+  --input-sm-font-size: 0.875rem;
+  --input-sm-line-height: 1.25rem;
+  --input-sm-font-weight: 400;
+
+  --tab-label-font-size: 0.875rem;
+  --tab-label-line-height: 1rem;
+  --tab-label-font-weight: 600;
+
+  --avatar-font-size: 0.875rem;
+  --avatar-line-height: 1rem;
+  --avatar-font-weight: 700;
+
+  --avatar-sm-font-size: 0.625rem;
+  --avatar-sm-line-height: 0.875;
+  --avatar-sm-font-weight: 600;
+
+  --tooltip-font-size: 0.75rem;
+  --tooltip-line-height: 1rem;
+  --tooltip-font-weight: 600;
+
+  /* 
+   *===============================================
+   * SPACING
+   *===============================================
+   */
+  --spacing-3xs: 0.125rem;
+  --spacing-2xs: 0.25rem;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 2.5rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 3.5rem;
+
+  /* 
+   *===============================================
+   * BORDER
+   *===============================================
+   */
+  --border-radius-xs: 0.125rem;
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 0.75rem;
+  --border-radius-xl: 1rem;
+
+  /*
+   *===============================================
+   * CHART
+   *===============================================
+   */
+  --chart-5: var(--sage-green);
+  --chart-4: var(--forest-green);
+  --chart-3: var(--midnight-teal);
+  --chart-2: var(--cactus-green);
+  --chart-1: var(--olivia-blue);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    outline-color: color-mix(in oklch, var(--color-ring) 50%, transparent);
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    color: var(--cactus-green);
+    background: linear-gradient(
+      316.47deg,
+      var(--cactus-green) -1.37%,
+      var(--olivia-blue-dark) 52.87%,
+      var(--olivia-blue-t600) 140.05%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .skeleton * {
+    pointer-events: none !important;
+  }
+
+  .skeleton *[class^="text-"] {
+    color: transparent;
+    @apply rounded-md bg-foreground/20 select-none animate-pulse;
+  }
+
+  .skeleton .skeleton-bg {
+    @apply bg-foreground/10;
+  }
+
+  .skeleton .skeleton-div {
+    @apply bg-foreground/20 animate-pulse;
+  }
+}
+
+/* Thinking shimmer effect (parity with agentic-assist-demo) */
+@keyframes textShimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.thinking-shimmer {
+  background: linear-gradient(270deg, #a9a9a9 25%, #555555 50%, #a9a9a9 75%);
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textShimmer 1.5s infinite;
+  display: inline-block;
+}
