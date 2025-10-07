@@ -278,15 +278,15 @@
 
   .skeleton *[class^="text-"] {
     color: transparent;
-    @apply rounded-md bg-foreground/20 select-none animate-pulse;
+    @apply rounded-md bg-gray-200 select-none animate-pulse;
   }
 
   .skeleton .skeleton-bg {
-    @apply bg-foreground/10;
+    @apply bg-gray-100;
   }
 
   .skeleton .skeleton-div {
-    @apply bg-foreground/20 animate-pulse;
+    @apply bg-gray-200 animate-pulse;
   }
 }
 
